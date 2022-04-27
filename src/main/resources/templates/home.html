@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>this is home page</title>
+</head>
+<body>
+	<section class="banner d-flex align-items-center ">
+		<div class="container text-center">
+		<h1 class="font-weight-bold">Smart Contact Manager</h1>
+		<p>Start Collecting your contacts in very smarter way. we provide 
+			very efficient and smarter way of handling contacts</p>
+			<button type="button" class="btn bg-primary btn-lg text-white">Primary</button>      <!-- see on bootstrap -->
+		</div>
+
+	</section>
+</body>
+</html>
+
+<!-- 
+1.starter temp
+section(home)->th:replace=  -> in base.html the fragment layout(content i.e. section of home) is imported
+ 
+ when we use only text centre, it will align only the main axis, but for aligning at centre point use d-flex properties
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1.<section class="banner d-flex align-items-center ">
+		<div class="container text-center">
+		<h1 class="font-weight-bold">Smart Contact Manager</h1>
+		<p>Start Collecting your contacts in very smarter way. we provide 
+			very efficient and smarter way of handling contacts</p>
+		</div>
+
+	</section>              // or
+	
+	<section class="banner d-flex align-items-center ">
+		<div class="container text-center">
+		<h1 class="font-weight-bold">Smart Contact Manager</h1>
+		<p>Start Collecting your contacts in very smarter way. we provide 
+			very efficient and smarter way of handling contacts</p>
+		</div>
+
+	</section>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ -->
+
+
+

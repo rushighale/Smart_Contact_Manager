@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>this is home page</title>
+</head>
+<body>
+	<section>
+
+		<div class="card mr-3 ml-3">
+
+			<div class="card-body">
+
+				<h1 class="text-center">Your Contacts</h1>
+				
+				<!-- search -->
+				<div class="search-container my-4">  <!-- margin for top and bottom -->
+				
+				<input onkeyup="search()" id="search-input" type="text"  class="form-control" placeholder="Search your contacts" />
+				
+				
+				<div class="search-result">
+				
+				<!-- result goes here -->
+				
+				</div>
+				
+				</div>
+
+
+				<div class="table-responsive">                  <!-- making table responsive -->
+				
+				
+			
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th scope="col">#ID</th>
+							<th scope="col">Name</th>
+							<th scope="col">Email</th>
+							<th scope="col">Phone</th>
+							<th scope="col">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+
+
+						 <tr th:each="c : ${contacts}">				<!-- get each contact in c  -->
+							<th scope="row" th:text="${'SCMUSER'+c.cId}">1</th>  <!-- id is cId in class, (SCMUSER or SCM2020)  -->
+							<td >
+							
+							<img src="" class="my_profile_picture" th:src="@{'/img/'+${c.image}}" alt="profile photo" />   <!-- show img using src and alt -->
+							
+							<span th:text="${c.name}"></span> </td>
+							
+							<td >
+							
+							<a href="#" th:href="@{'/user/'+${c.cId}+'/contact'}">
+							
+							<span th:text="${c.email}"></span>
+							
+							
+							</a>
+							
+							</td>
+							
+							
+							
+							
+							<td th:text="${c.phone}">@mdo</td>
+							<td>
+
+								<a href="#" th:onclick="|deleteContact(${c.cId})|" class="btn btn-danger btn-sm">Delete</a>
+								<form method="post" th:action="@{'/user/update-contact/'+${c.cId}}" class="mt-2">
+									<button type="submit"  class="btn btn-primary btn-sm">Update</button>
+								</form>
+							</td>
+						</tr> 
+
+				
+
+
+
+
+					</tbody>
+				</table>
+
+	</div>
+				<!--  pagination part -->
+
+				<nav aria-label="Page navigation example">
+
+					<ul class="pagination">
+
+										<li th:if="${currentPage != 0}" class="page-item"><a
+										th:href="@{'/user/show-contacts/'+${currentPage-1}}"
+										class="page-link" href="#">Previous</a></li>
+<!--(i=1, total pages),0=1-1,  -->		<li th:classappend="${currentPage==i-1?'active':''}"       
+										th:each="i : ${#numbers.sequence(1,totalPages)}"   
+										class="page-item"><a                                  
+										th:href="@{'/user/show-contacts/'+${i-1}}" class="page-link"
+										href="#"><span th:text="${i}"></span></a></li>
+<!-- check here next page available or not --><li th:if="${currentPage+1 != totalPages}" class="page-item"><a 
+										th:href="@{'/user/show-contacts/'+${currentPage+1}}"
+										class="page-link" href="#">Next</a></li>
+					</ul>
+				</nav>
+			</div>		<!--we passing here "currentPage"=page from controller , here when cureentpage=i-1 , then classapend "acive", it gets active depends on which page we have opend  -->
+						<!-- "@{'/user/show-contacts/'+${i-1}}"  :- static denoted by ' ' -->
+		</div>			<!-- when u switch to 1 current page , so 1+1=2,then it dident show next tabS     when total pages 2, -->
+
+<script>
+$(document).ready(()=>{
+	$(".item").removeClass("active");   /* when document ready remove active form item and added to id="home-link" */
+	$("#view-link").addClass("active");								/* $("#home-link").addClass("active"); */
+});
+</script>
+	</section>
+</body>
+</html>

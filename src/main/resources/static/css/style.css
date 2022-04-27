@@ -1,0 +1,115 @@
+body{
+	background: #e2e2e2!important;
+}
+
+.bg-primary{
+	background: #009688 !important;
+}
+.banner{
+	width:100%;
+	height:93vh;
+	
+	background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)) , url(../img/banner.jpg);
+	background-size:cover;
+	color:white;     /*  it is for text color*/
+	
+}
+.my-card{
+	padding: 20px;
+	background: #FFFFFF
+}
+
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 420px;
+  border: 1px solid #9C9C9C;
+  background-color: white;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+
+/*  sidebar style*/
+
+@media only Screen and(max-width: 600px){      /* jab app badi screne pe ho to bydefault dikhega , aur jab ap small screnn pe ho to hide rahega */
+	
+}
+
+
+.sidebar{
+	width: 18%;						
+	background:white;				
+	height: 100%;				
+	position: fixed;					
+	padding-top: 45px;	
+	z-index: 999999999999999999999999;
+}
+
+.sidebar a{				
+	display: block;				/*  so, hight width we can adjust*/
+	width: 100%;
+	padding: 10px 25px;				/* from top , left */
+	text-decoration: none;       /* underline na rahe */
+	color: gray;
+}
+
+
+.sidebar a:hover{
+	background: #e2e2e2;      /* sidebar ke upr le jaoge tab , hightlight kr dena */
+}
+
+.sidebar .divider{               /*  */ 
+	height: .5px;
+	width: 100%;
+	background: #e2e2e2;
+	margin-top:10px;
+	
+}
+
+
+.content{
+	
+	margin-left:20%;   		 /*   margin for content */
+} 
+
+.sidebar .crossBtn{
+	position: absolute;          /* parent ke ralative kam hoga */
+	top: 0;
+	right: 35px;
+	font-size: 36px;
+	cursor: pointer;
+}
+
+.my_profile_picture{ 
+	width: 35px;
+	height: 35px;
+	object-fit:cover;
+	border-radius:50%;
+	
+	}
+	
+	
+	/* search css */
+	.search-container{
+	position: relative;
+	
+	
+	}
+	.search-result{
+	position: absolute;
+	background:white;
+	width:100%;
+	padding: 1px solid gray;
+	display: none;                        /*  bydeafult container result dikhana nahi hai, display when u search*/
+	
+	}
+	
+	.active{
+	background:#009688 !important;
+	color:white !important; 
+	
+	}
